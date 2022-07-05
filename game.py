@@ -1,5 +1,14 @@
 # tic-tac-toe game (code academy project)
+import tkinter
 
-print("I am ready to play tic tac toe")
 
-print("something new")
+
+#This class will make the game board
+class TicTacToeBoard:
+  pass
+
+
+#this class will have the logic of the game
+class TicTacToeGame:
+  pass
+
