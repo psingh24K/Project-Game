@@ -1,8 +1,6 @@
 # tic-tac-toe game (code academy project)
-from importlib.machinery import WindowsRegistryFinder
 from tkinter import *
 from tkinter import messagebox
-from turtle import bgcolor
 
 # create a object root of TK(tkinter) class
 root = Tk()
@@ -15,9 +13,9 @@ root.iconbitmap('/Users/prabhnoorsingh/Computing/Back End/Python/Project Game/ti
 
 # Check if the game is tied
 def game_tied():
-  if count >= 9:
+  if count == 9 and winner == False:
     messagebox.showinfo("Tic-Tac-Toe", "The game is tied")
-
+    disable_all_buttons()
 
 
 # Disable all functions
@@ -63,7 +61,7 @@ def checkifwon():
   # Checking for vertical Y axis next
   elif b1["text"] == "X" and b4["text"] == "X" and b7["text"] == "X":
     b1.config(highlightbackground="red")
-    b5.config(highlightbackground="red")
+    b4.config(highlightbackground="red")
     b7.config(highlightbackground="red")
     winner = True
     messagebox.showinfo("Tic-Tac-Toe", "Congratulations you won the game")
@@ -173,14 +171,14 @@ def b_click(b):
     b["text"] = "X"
     clicked = False
     count += 1
-    game_tied()
     checkifwon()
+    game_tied()
   elif b["text"] == " " and clicked == False:
     b["text"] = "O"
     clicked = True
     count += 1
-    game_tied()
     checkifwon()
+    game_tied()
   else:
     messagebox.showerror("Tic-Tac-Toe", "Please click a empty box\n This box is already selected")
 
@@ -211,6 +209,17 @@ b7.grid(row=2, column=0)
 b8.grid(row=2, column=1)
 b9.grid(row=2, column=2)
 
-# 
+
+#reset the game
+# def reset():
+#   pass
+# # create menu
+# my_menu = Menu(root)
+# root.config(menu=my_menu)
+
+# #create Options Menu
+# options_menu = Menu(my_menu, tearoff=False)
+# my_menu.add_cascade(Label="Options", menu=options_menu)
+# options_menu.add_command(Label="Reset Game", command=reset)
 
 root.mainloop()
